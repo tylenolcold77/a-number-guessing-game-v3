@@ -6,7 +6,7 @@ def start_game():
     print("Welcome to the number guessing game!")
     print("I'm thinking of a number between 1 and 100.")
     
-    high_score = 0  # Initialize high score with positive infinity.
+    high_score = [None]  # Initialize high score with positive infinity.
     
     while True:
         # Generate a random winning number
@@ -33,8 +33,8 @@ def start_game():
                 print("Too high! Try a lower number.")
             else:
                 print(f"Congratulations! You guessed the number in {len(attempts)} attempts!")
-                if len(attempts) < high_score:
-                    high_score = len(attempts)
+                if len(attempts) < len(high_score) or high_score[0] is None:
+                    high_score[0] = len(attempts)
                     print(f"New high score! {len(attempts)} attempts.")
                 break  # Exit the loop when the correct number is guessed
             
@@ -45,6 +45,10 @@ def start_game():
             print(f"Mean of guesses: {statistics.mean(attempts)}")
             print(f"Median of guesses: {statistics.median(attempts)}")
             print(f"Mode of guesses: {statistics.mode(attempts)}")
+            print(f"Number of highscore: {len(high_score)}")
+            print(f"Mean of highscore: {statistics.mean(high_score)}")
+            print(f"Median of highscore: {statistics.median(high_score)}")
+            print(f"Mode of highscore: {statistics.mode(high_score)}")
             break  # Exit the game when the player chooses not to play again
         
 start_game()
