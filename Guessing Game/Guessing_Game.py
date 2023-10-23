@@ -38,17 +38,14 @@ def start_game():
                     print(f"New high score! {len(attempts)} attempts.")
                 break  # Exit the loop when the correct number is guessed
             
+        print("Thanks for playing! Here's a summary of your game:")
+        print(f"Number of guesses: {len(attempts)}")
+        print(f"Mean of guesses: {statistics.mean(attempts)}")
+        print(f"Median of guesses: {statistics.median(attempts)}")
+        print(f"Mode of guesses: {statistics.mode(attempts)}")
+            
         play_again = input("Would you like to play again? (y/n) ").lower()
         if play_again != 'y':
-            print("Thanks for playing! Here's a summary of your game:")
-            print(f"Number of guesses: {len(attempts)}")
-            print(f"Mean of guesses: {statistics.mean(attempts)}")
-            print(f"Median of guesses: {statistics.median(attempts)}")
-            print(f"Mode of guesses: {statistics.mode(attempts)}")
-            print(f"Number of highscore: {len(high_score)}")
-            print(f"Mean of highscore: {statistics.mean(high_score)}")
-            print(f"Median of highscore: {statistics.median(high_score)}")
-            print(f"Mode of highscore: {statistics.mode(high_score)}")
-            break  # Exit the game when the player chooses not to play again
+            break # Exit the game when the player chooses not to play again
         
 start_game()
